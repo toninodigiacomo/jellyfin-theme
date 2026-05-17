@@ -183,10 +183,10 @@
     {{/categories}}
 
     {{#displayRawFiles}}
-    <a class="cat-card" href="{{rawFilesUrl}}" data-category-id="rawfiles" data-latest-url="">
-      <div class="cat-card-overlay" style="background:rgba(0,0,0,0.7);position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;"></div>
+    <a class="cat-card" href="{{rawFilesUrl}}" data-category-id="rawfiles" data-raw-url="{{rawFilesUrl}}">
+      <div class="cat-card-bg" id="bg-rawfiles"></div>
+      <div class="cat-card-overlay"></div>
       <div class="cat-card-content">
-        <span style="font-size:40px;">📂</span>
         <span class="cat-card-label">Raw Files</span>
       </div>
     </a>
@@ -283,6 +283,31 @@
         if (grid) grid.innerHTML = '<span style="color:#444;font-size:13px;">Impossible de charger les éléments récents</span>';
       });
   });
+
+  // Fond de la card Raw Files
+  var rawCard = document.querySelector('.cat-card[data-raw-url]');
+  if (rawCard) {
+    var rawUrl = rawCard.dataset.rawUrl;
+    var rawBg  = document.getElementById('bg-rawfiles');
+    if (rawUrl && rawBg) {
+      fetch(rawUrl)
+        .then(function(r) { return r.text(); })
+        .then(function(html) {
+          var doc  = new DOMParser().parseFromString(html, 'text/html');
+          var imgs = doc.querySelectorAll('img[src*="cover"], img[src*="thumbnail"], img');
+          // Filtre les images qui ne sont pas des icônes UI
+          var covers = Array.from(imgs).filter(function(img) {
+            return img.src && !img.src.includes('theme') && img.naturalWidth !== 0;
+          });
+          if (!covers.length) covers = Array.from(imgs);
+          if (covers.length) {
+            var pick = covers[Math.floor(Math.random() * covers.length)];
+            rawBg.style.backgroundImage = 'url(' + pick.src + ')';
+          }
+        })
+        .catch(function() {});
+    }
+  }
 
   // (The single fetch above replaces the two separate loops)
   // Loading the 10 most recent items by category — MERGED above

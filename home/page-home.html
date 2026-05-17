@@ -255,13 +255,21 @@
 
         var count = Math.min(imgs.length, 10);
         for (var i = 0; i < count; i++) {
-          var img    = imgs[i];
-          var anchor = img.closest('a') || img.closest('.book');
-          var href   = anchor ? (anchor.href || (anchor.querySelector('a') && anchor.querySelector('a').href)) : latestUrl;
+          var img  = imgs[i];
+
+          // Cherche le lien parent de la card
+          var book = img.closest('.book') || img.closest('.cellcontainer');
+          var href = latestUrl; // fallback : la page des récents
+
+          if (book) {
+            // Cas dossier : lien direct
+            var folderLink = book.querySelector('a[href]:not([href="#"])');
+            if (folderLink) href = folderLink.href;
+          }
 
           var a      = document.createElement('a');
           a.className = 'recent-card';
-          a.href      = href || latestUrl;
+          a.href      = href;
 
           var im     = document.createElement('img');
           im.src     = img.src;

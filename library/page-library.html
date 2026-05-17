@@ -1,4 +1,5 @@
 {{>common/inc-header.html}}
+
 <link rel="stylesheet" type="text/css" href="{{rootPath}}/theme/library/library.css"/>
 
 <style>
@@ -118,12 +119,33 @@
   {{/items}}
 
   <div id="pagination" style="display:flex;align-items:center;gap:6px;justify-content:center;margin-top:40px;padding:20px 0;">
-    <a href="{{prev10pageUrl}}" class="{{prev10pageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">«</a>
-    <a href="{{prevPageUrl}}" class="{{prevPageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">‹</a>
-    <span style="padding:6px 14px;background:#4ca2d8;border-radius:6px;color:#fff;font-weight:700;font-size:13px;">{{pageNumber}} / {{totalPages}}</span>
-    <a href="{{nextPageUrl}}" class="{{nextPageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">›</a>
-    <a href="{{next10pageUrl}}" class="{{next10pageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">»</a>
+    <a href="{{prev10pageUrl}}" class="page-nav {{prev10pageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">«</a>
+    <a href="{{prevPageUrl}}" class="page-nav {{prevPageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">‹</a>
+    <span id="page-indicator" style="padding:6px 14px;background:#4ca2d8;border-radius:6px;color:#fff;font-weight:700;font-size:13px;">{{pageNumber}} / {{totalPages}}</span>
+    <a href="{{nextPageUrl}}" class="page-nav {{nextPageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">›</a>
+    <a href="{{next10pageUrl}}" class="page-nav {{next10pageClass}}" style="padding:6px 12px;background:#1c1c1c;border:1px solid rgba(255,255,255,0.07);border-radius:6px;color:#aaa;font-weight:700;font-size:13px;">»</a>
   </div>
+
+  <script>
+  // Masque la pagination si une seule page
+  (function() {
+    var indicator = document.getElementById('page-indicator');
+    if (indicator) {
+      var parts = indicator.textContent.trim().split('/');
+      var total = parseInt((parts[1] || '1').trim(), 10);
+      if (total <= 1) {
+        document.getElementById('pagination').style.display = 'none';
+      }
+    }
+    // Désactive les liens "hidden" (classe Ubooquity pour liens inactifs)
+    document.querySelectorAll('.page-nav.hidden').forEach(function(el) {
+      el.addEventListener('click', function(e) { e.preventDefault(); });
+      el.style.opacity = '0.25';
+      el.style.cursor = 'default';
+      el.style.pointerEvents = 'none';
+    });
+  })();
+  </script>
 
 </main>
 

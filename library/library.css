@@ -99,32 +99,73 @@
   font-size: 15px;
   font-weight: 700;
   color: #4ca2d8;
-  margin-bottom: 14px;
-}
-
-#details_series {
-  font-size: 14px;
-  color: #aaaaaa;
   margin-bottom: 6px;
 }
 
+#details_series {
+  font-size: 16px;
+  color: #aaaaaa;
+  margin-bottom: 16px;
+}
+
+/* #details_series::before {
+  content: url('/theme/library/series.svg');
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 8px;
+  vertical-align: text-bottom;
+  opacity: 0;
+  filter: invert(1);
+} */
+
 #details_tags {
-  font-size: 13px;
+  font-size: 15px;
   color: #aaaaaa;
   font-style: italic;
   margin-bottom: 6px;
 }
 
+#details_tags::before {
+  content: url('/theme/library/tag.svg');
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 16px;
+  vertical-align: baseline;
+  opacity: 0.5;
+}
+
 #details_language {
-  font-size: 13px;
+  font-size: 15px;
   color: #aaaaaa;
   margin-bottom: 6px;
 }
 
+#details_language::before {
+  content: url('/theme/library/language.svg');
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 16px;
+  vertical-align: baseline;
+  opacity: 0.5;
+}
+
 #details_file {
-  font-size: 13px;
+  font-size: 15px;
   color: #888888;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+#details_file::before {
+  content: url('/theme/library/file.svg');
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 16px;
+  vertical-align: baseline;
+  opacity: 0.5;
 }
 
 #details_publication {
@@ -141,6 +182,7 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
+  justify-content: center;
   padding: 16px 0;
   border-top: 1px solid rgba(255,255,255,0.07);
   margin-top: 16px;
@@ -190,7 +232,7 @@
 /* ── Action buttons ──────────────────────────────────────────────────────────────────────────────── */
 #details_download {
   display: inline-block;
-  width: 32px;
+  width: 64px;
   height: 32px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -202,7 +244,7 @@
 
 #details_read {
   display: inline-block;
-  width: 32px;
+  width: 64px;
   height: 32px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -214,7 +256,7 @@
 
 #details_mark_unread {
   display: inline-block;
-  width: 32px;
+  width: 64px;
   height: 32px;
   background-repeat: no-repeat;
   background-size: contain;
@@ -226,13 +268,14 @@
 
 #details_mark_finished {
   display: inline-block;
-  width: 32px;
+  width: 64px;
   height: 32px;
   background-repeat: no-repeat;
   background-size: contain;
   opacity: 0.5;
   transition: opacity 0.2s;
 }
+
 #details_mark_finished:hover { opacity: 1; }
 
 /* ── Progress bar ────────────────────────────────────────────────────────────────────────────────── */

@@ -1,5 +1,5 @@
 /* ============================================================
-   Jellyfin Theme for Ubooquity 3
+   Jellyquity Theme for Ubooquity 3
    Inspired by the Jellyfin media server aesthetic
    ============================================================ */
 
@@ -52,13 +52,13 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
-/* ── Scrollbar ─────────────────────────────────────────── */
+/* ── Scrollbar ───────────────────────────────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--jf-bg); }
 ::-webkit-scrollbar-thumb { background: var(--jf-surface3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--jf-accent); }
 
-/* ── Topbar / Navigation ───────────────────────────────── */
+/* ── Topbar / Navigation ─────────────────────────────────────────────────────────────────────────── */
 #topbar, #topBar, .topbar, header {
   background: #454545 !important;
   backdrop-filter: blur(12px);
@@ -134,13 +134,13 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
   box-shadow: 0 4px 12px var(--jf-accent-glow) !important;
 }
 
-/* ── Main content wrapper ──────────────────────────────── */
+/* ── Main content wrapper ────────────────────────────────────────────────────────────────────────── */
 #content, #main, main, .content {
   padding: 28px 32px !important;
-  //max-width: 1800px !important;
+  /*max-width: 1800px !important;*/
 }
 
-/* ── Breadcrumb ────────────────────────────────────────── */
+/* ── Breadcrumb ──────────────────────────────────────────────────────────────────────────────────── */
 #breadcrumb, .breadcrumb {
   font-size: 13px !important;
   color: var(--jf-text-dim) !important;
@@ -157,7 +157,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
   color: var(--jf-text-dim);
 }
 
-/* ── Page title ────────────────────────────────────────── */
+/* ── Page title ──────────────────────────────────────────────────────────────────────────────────── */
 #pageTitle, h1.page-title, .page-title {
   font-size: 26px !important;
   font-weight: 800 !important;
@@ -166,7 +166,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
   letter-spacing: -0.03em !important;
 }
 
-/* ── Book / folder grid ────────────────────────────────── */
+/* ── Book / folder grid ──────────────────────────────────────────────────────────────────────────── */
 #booksContainer, #foldersContainer, .books-container, .grid-container,
 #comicsContainer, #comics-container {
   display: grid !important;
@@ -174,7 +174,7 @@ button:hover, .button:hover, input[type="button"]:hover, input[type="submit"]:ho
   gap: 20px !important;
 }
 
-/* ── Book card ─────────────────────────────────────────── */
+/* ── Book card ───────────────────────────────────────────────────────────────────────────────────── */
 .book, .folder, .item, .entry,
 div[id^="book-"], div[class*="book-item"], div[class*="folder-item"] {
   background: var(--jf-surface) !important;
@@ -193,7 +193,7 @@ div[id^="book-"]:hover, div[class*="book-item"]:hover, div[class*="folder-item"]
   z-index: 10;
 }
 
-/* Cover image */
+/* ── Cover image  ────────────────────────────────────────────────────────────────────────────────── */
 .book img, .folder img, .item img, .entry img,
 div[class*="book-item"] img, div[class*="folder-item"] img {
   width: 100% !important;
@@ -206,7 +206,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   filter: brightness(1.08) !important;
 }
 
-/* Card title */
+/* ── Card title ──────────────────────────────────────────────────────────────────────────────────── */
 .book .title, .folder .title, .item .title, .entry .title,
 .book-title, .item-title {
   padding: 8px 10px !important;
@@ -220,7 +220,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   border-top: 1px solid var(--jf-border) !important;
 }
 
-/* Progress bar (reading progress) */
+/* ── Progress bar (reading progress) ─────────────────────────────────────────────────────────────── */
 .progress, .reading-progress, .progressBar {
   height: 3px !important;
   background: var(--jf-surface3) !important;
@@ -233,7 +233,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   transition: width 0.3s ease !important;
 }
 
-/* "Read" badge overlay */
+/* ── "Read" badge overlay ────────────────────────────────────────────────────────────────────────── */
 .read-badge, .badge-read {
   position: absolute !important;
   top: 8px !important;
@@ -248,7 +248,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   letter-spacing: 0.05em !important;
 }
 
-/* ── Category pills (home page) ────────────────────────── */
+/* ── Category pills (home page) ──────────────────────────────────────────────────────────────────── */
 .category, .category-item, .rootFolder {
   background: var(--jf-surface) !important;
   border: 1px solid var(--jf-border) !important;
@@ -278,7 +278,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   margin-top: 3px;
 }
 
-/* ── Popup / modal ─────────────────────────────────────── */
+/* ── Popup / modal ───────────────────────────────────────────────────────────────────────────────── */
 #popup, .popup, .modal, #detailsPopup {
   background: var(--jf-surface) !important;
   border: 1px solid var(--jf-border) !important;
@@ -306,7 +306,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   color: #fff !important;
 }
 
-/* ── Login page ────────────────────────────────────────── */
+/* ── Login page ──────────────────────────────────────────────────────────────────────────────────── */
 #loginForm, .login-form, form.login {
   background: var(--jf-surface) !important;
   border: 1px solid var(--jf-border) !important;
@@ -337,7 +337,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   margin-top: 8px !important;
 }
 
-/* ── Section headers ───────────────────────────────────── */
+/* ── Section headers ─────────────────────────────────────────────────────────────────────────────── */
 .section-header, .library-section h2 {
   font-size: 20px !important;
   font-weight: 800 !important;
@@ -348,7 +348,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   letter-spacing: -0.02em !important;
 }
 
-/* ── Pagination ────────────────────────────────────────── */
+/* ── Pagination ──────────────────────────────────────────────────────────────────────────────────── */
 #pagination, .pagination {
   display: flex !important;
   align-items: center !important;
@@ -383,7 +383,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   color: #fff !important;
 }
 
-/* ── Sort / filter bar ─────────────────────────────────── */
+/* ── Sort / filter bar ───────────────────────────────────────────────────────────────────────────── */
 #sortBar, .sort-bar, .filter-bar {
   display: flex !important;
   align-items: center !important;
@@ -406,7 +406,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   border-color: var(--jf-accent) !important;
 }
 
-/* ── Arrow navigation ──────────────────────────────────── */
+/* ── Arrow navigation ────────────────────────────────────────────────────────────────────────────── */
 #arrowleft, #arrowright, .nav-arrow {
   background-color: rgba(0,164,220,0.15) !important;
   border: 1px solid var(--jf-accent) !important;
@@ -417,7 +417,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   background-color: var(--jf-accent) !important;
 }
 
-/* ── Footer ────────────────────────────────────────────── */
+/* ── Footer ──────────────────────────────────────────────────────────────────────────────────────── */
 #footer, footer {
   background: var(--jf-surface) !important;
   border-top: 1px solid var(--jf-border) !important;
@@ -431,7 +431,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
   color: var(--jf-accent) !important;
 }
 
-/* ── Overlay gradient on card hover ────────────────────── */
+/* ── Overlay gradient on card hover ──────────────────────────────────────────────────────────────── */
 .book::after, .item::after {
   content: '';
   position: absolute;
@@ -444,7 +444,7 @@ div[class*="book-item"] img, div[class*="folder-item"] img {
 }
 .book:hover::after, .item:hover::after { opacity: 1; }
 
-/* ── Responsive ────────────────────────────────────────── */
+/* ── Responsive ──────────────────────────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   #content, #main, main, .content {
     padding: 16px !important;

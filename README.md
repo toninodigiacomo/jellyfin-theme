@@ -31,7 +31,7 @@ A dark theme inspired by the **Jellyfin** interface, designed for Ubooquity 3.x.
 
 ## File Structure
 
-```
+```txt
 jellyfin/
 ├── common/
 │   ├── style.css                             ← Main CSS (all pages)
@@ -67,6 +67,7 @@ All colors are CSS variables in `common/style.css`:
 ```
 
 ### Change the accent color (e.g., Plex purple)
+
 ```css
 --jf-accent:       #e5a00d;
 --jf-accent-hover: #cc8f0b;

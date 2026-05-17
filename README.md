@@ -1,86 +1,87 @@
-# Thème Jellyfin pour Ubooquity 3
+# Jellyquity Theme for Ubooquity 3
 
-Un thème sombre inspiré de l'interface de **Jellyfin**, conçu pour Ubooquity 3.x.
+A dark theme inspired by the **Jellyfin** interface, designed for Ubooquity 3.x.
 
 ---
 
-## Aperçu visuel
+## Visual overview
 
-| Élément          | Valeur                          |
+| Element          | Value                           |
 |------------------|---------------------------------|
-| Fond principal   | `#101010` (noir profond)        |
-| Surface des cards| `#1c1c1c`                       |
-| Couleur accent   | `#00a4dc` (bleu Jellyfin)       |
-| Typographie      | Nunito (Google Fonts)           |
-| Coins des cards  | Arrondis (10px)                 |
-| Effet hover      | Élévation + bordure bleue       |
+| Main background  | `#101010` (deep black)          |
+| Card background  | `#1c1c1c`                       |
+| Accent color     | `#00a4dc` (Jellyfin blue)       |
+| Font             | Nunito (Google Fonts)           |
+| Card corners     | Rounded (10px)                  |
+| Hover effect     | Lift + blue border              |
 
 ---
 
 ## Installation
 
-1. Dans l'administration Ubooquity, allez dans **Paramètres généraux**
-2. Cliquez sur **"Créer un nouveau thème…"** et nommez-le `jellyfin`
-3. Copiez les fichiers de ce dossier dans le dossier du thème créé
-4. Sélectionnez le thème `jellyfin` dans la liste déroulante et appliquez
-5. Redémarrez Ubooquity
+1. In the Ubooquity admin panel, go to **General Settings**
+2. Click **“Create a new theme…”** and name it `jellyfin`
+3. Copy the files from this folder into the newly created theme folder
+4. Select the `jellyfin` theme from the drop-down list and apply
+5. Restart Ubooquity
 
-> **Important** : Les thèmes Ubooquity 3 sont incompatibles avec Ubooquity 2.x.
+> **Important**: This theme is incompatible with Ubooquity 2.x.
 
 ---
 
-## Structure des fichiers
+## File Structure
 
 ```
 jellyfin/
 ├── common/
-│   ├── style.css          ← CSS principal (toutes les pages)
-│   ├── inc-header.html    ← En-tête commun (logo, nav, recherche)
-│   └── themeScript.js     ← (facultatif, vide par défaut)
+│   ├── style.css                             ← Main CSS (all pages)
+│   ├── inc-header.html                       ← Common header (logo, navigation, search)
+│   └── inc-footer.html                       ← Common footer
 ├── home/
-│   └── page-home.html     ← Page d'accueil (catégories)
+│   └── page-home.html                        ← Home page (categories)
 ├── library/
-│   ├── page-library.html                    ← Grille livres/dossiers
-│   └── page-library-category-root-dirs.html ← Racine d'une catégorie
+│   ├── library.css                           ← Content CSS
+│   ├── inc-library-popups.html               ← File details popup
+│   ├── page-library.html                     ← Books/folders grid
+│   └── page-library-category-root-dirs.html  ← Category root
 └── login/
-    └── page-login.html    ← Page de connexion
+    └── page-login.html                       ← Login page
 ```
 
-Les fichiers non présents dans ce thème sont automatiquement récupérés du thème par défaut d'Ubooquity.
+Files not included in this theme are automatically retrieved from the Ubooquity default theme.
 
 ---
 
-## Personnalisation
+## Customization
 
-Toutes les couleurs sont des variables CSS dans `common/style.css` :
+All colors are CSS variables in `common/style.css`:
 
 ```css
 :root {
-  --jf-bg:       #101010;   /* Fond global */
-  --jf-surface:  #1c1c1c;   /* Cards, panels */
-  --jf-accent:   #00a4dc;   /* Bleu Jellyfin */
-  --jf-text:     #ffffff;   /* Texte principal */
-  --jf-text-muted: #aaaaaa; /* Texte secondaire */
+  --jf-bg:         #101010;   /* Global background */
+  --jf-surface:    #1c1c1c;   /* Cards, panels */
+  --jf-accent:     #00a4dc;   /* Jellyfin blue */
+  --jf-text:       #ffffff;   /* Main text */
+  --jf-text-muted: #aaaaaa;   /* Secondary text */
 }
 ```
 
-### Changer la couleur d'accent (ex. violet Plex)
+### Change the accent color (e.g., Plex purple)
 ```css
---jf-accent: #e5a00d;
+--jf-accent:       #e5a00d;
 --jf-accent-hover: #cc8f0b;
---jf-accent-glow: rgba(229,160,13,0.25);
+--jf-accent-glow:  rgba(229,160,13,0.25);
 ```
 
 ---
 
 ## Notes
 
-- La police **Nunito** est chargée depuis Google Fonts. En cas de réseau fermé,
-  remplacez l'import par une police locale ou système (`font-family: 'Segoe UI', sans-serif`).
-- Les cards utilisent `aspect-ratio: 2/3` pour les couvertures — idéal pour BD et romans.
-- La barre de progression de lecture s'affiche automatiquement si Ubooquity fournit
-  la variable `{{readingProgress}}`.
+- The **Nunito** font is loaded from Google Fonts. If you're on a closed network,
+  replace the import with a local or system font (`font-family: ‘Segoe UI’, sans-serif`).
+- The cards use `aspect-ratio: 2/3` for covers — ideal for comics and novels.
+- The reading progress bar is displayed automatically if Ubooquity provides
+  the `{{readingProgress}}` variable.
 
-
-> **Important** : Il faut que dans les parèmètres d'administration d'ubooquity que **Enable folder metadata display** soit activé !
-> **Important** : Il faut que dans les parèmètres **Display title from metadata instead of file name** soit activé pour avopoir les titres qui se trouvent dans les metadatas !
+> **Important**: In the Ubooquity administration settings, **Enable folder metadata display** must be enabled!
+> **Important**: In the settings, **Display title from metadata instead of file name** must be enabled to display titles from the metadata!

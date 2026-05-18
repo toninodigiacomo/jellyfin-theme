@@ -27,14 +27,14 @@
       </a>
     </div>
 
-    <!-- Search + Home buttons — Current ID for the JS -->
+    <!-- Up + Home buttons + Search — Current ID for the JS -->
     <nav id="navigation-buttons" style="display:flex;align-items:right;justify-content:right;flex:0;">
-      <a href="#" title="Recherche" onclick="toggleSearch(event)"
-         id="btn-search"
-         style="display:inline-flex;align-items:right;padding:7px;border-radius:8px;transition:opacity 0.2s;opacity:0.55;"
-         onmouseover="this.style.opacity='1';"
-         onmouseout="this.style.opacity='0.55';">
-         <img src="{{rootPath}}/theme/common/icon-search.svg" alt="Recherche"
+      <a href="#" title="Monter"
+        id="btn-up"
+        style="display:inline-flex;align-items:right;padding:7px;border-radius:8px;transition:opacity 0.2s;opacity:0.55;"
+        onmouseover="this.style.opacity='1';"
+        onmouseout="this.style.opacity='0.55';">
+        <img src="{{rootPath}}/theme/common/icon-up.svg" alt="Monter"
             style="width:24px;height:24px;display:block;"/>
       </a>
       <a href="{{rootPath}}/" title="Accueil"
@@ -43,6 +43,14 @@
          onmouseover="this.style.opacity='1';"
          onmouseout="this.style.opacity='0.55';">
         <img src="{{rootPath}}/theme/common/icon-home.svg" alt="Accueil"
+            style="width:24px;height:24px;display:block;"/>
+      </a>
+      <a href="#" title="Recherche" onclick="toggleSearch(event)"
+         id="btn-search"
+         style="display:inline-flex;align-items:right;padding:7px;border-radius:8px;transition:opacity 0.2s;opacity:0.55;"
+         onmouseover="this.style.opacity='1';"
+         onmouseout="this.style.opacity='0.55';">
+         <img src="{{rootPath}}/theme/common/icon-search.svg" alt="Recherche"
             style="width:24px;height:24px;display:block;"/>
       </a>
     </nav>
@@ -109,6 +117,25 @@
     var nav = document.getElementById('navigation-buttons');
     if (nav) {
       nav.style.visibility = isHome ? 'hidden' : 'visible';
+    }
+
+    // ── Bouton Monter ────────────────────────────────────────────────────────────────────────────────
+    var btnUp = document.getElementById('btn-up');
+    if (btnUp) {
+      // Construit l'URL parente en retirant le dernier segment
+      var segments = path.replace(/\/$/, '').split('/');
+      if (segments.length > 1) {
+        segments.pop();
+        var parentPath = segments.join('/') || '/';
+        btnUp.href = parentPath;
+        // Masque le bouton si on est à la racine d'une catégorie (ex: /comics)
+        // ou sur la home
+        if (segments.length <= 1 || isHome) {
+          btnUp.style.visibility = 'hidden';
+        }
+      } else {
+        btnUp.style.visibility = 'hidden';
+      }
     }
 
     // ── Search Popup ─────────────────────────────────────────────────────────────────────────────────

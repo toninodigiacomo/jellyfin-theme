@@ -13,39 +13,39 @@
 </div>
 <div class="popupmenu" id="bookdetails"></div>
 <div class="popupmenu" id="settingsbox">
-    <div class="popuptitle"><span class="categorytitle">{{category}}</span> display settings</div>
+    <div class="popuptitle"><span class="categorytitle">{{category}}</span> paramètres d'affichage</div>
     <form id="settingsform" method="POST" action="{{rootPath}}/{{category}}?settings=true">
-        <div class="sectiontitle">Grouping</div>
+        <div class="sectiontitle">Regroupement</div>
         <!-- ⚠ values must be consistent with grouping enum -->
         <label class="radiolabel">
-            <input type="radio" name="grouping" value="FOLDER" {{checkedGroupByFolder}}/>Folder</label>
+            <input type="radio" name="grouping" value="FOLDER" {{checkedGroupByFolder}}/>Répertoire</label>
         <label class="radiolabel">
-            <input type="radio" name="grouping" value="FLAT" {{checkedNoGrouping}}/>Flat</label>
+            <input type="radio" name="grouping" value="FLAT" {{checkedNoGrouping}}/>Plat</label>
         <br/>
-        <div class="sectiontitle">Sorting criterion</div>
+        <div class="sectiontitle">Critère de tri</div>
         <!-- ⚠ values must be consistent with field enum -->
         <label class="radiolabel">
-            <input type="radio" name="sortingCriterion" value="FILE_PATH" {{checkedSortByFilePath}}/>File path</label>
+            <input type="radio" name="sortingCriterion" value="FILE_PATH" {{checkedSortByFilePath}}/>Chemin d'accès </label>
         <label class="radiolabel">
-            <input type="radio" name="sortingCriterion" value="FILE_NAME" {{checkedSortByFileName}}/>File name</label>
+            <input type="radio" name="sortingCriterion" value="FILE_NAME" {{checkedSortByFileName}}/>Nom du fichier</label>
         <br/>
         <label class="radiolabel">
-            <input type="radio" name="sortingCriterion" value="WRITERS" {{checkedSortByWriters}}/>Authors</label>
+            <input type="radio" name="sortingCriterion" value="WRITERS" {{checkedSortByWriters}}/>Auteurs</label>
         <label class="radiolabel">
-            <input type="radio" name="sortingCriterion" value="TITLE" {{checkedSortByTitle}}/>Title</label>
+            <input type="radio" name="sortingCriterion" value="TITLE" {{checkedSortByTitle}}/>Titre</label>
         <br/>
         <label class="radiolabel">
-            <input type="radio" name="sortingCriterion" value="DATE_UPDATED" {{checkedSortByDate}}/>Date added</label>
+            <input type="radio" name="sortingCriterion" value="DATE_UPDATED" {{checkedSortByDate}}/>Date d'ajout</label>
         <br/>
-        <div class="sectiontitle">Sorting order</div>
+        <div class="sectiontitle">Order de tri</div>
         <!-- ⚠ values must be consistent with sorting order enum -->
         <label class="radiolabel">
-            <input type="radio" name="sortingOrder" value="ASC" {{checkedSortAsc}}/>Ascending</label>
+            <input type="radio" name="sortingOrder" value="ASC" {{checkedSortAsc}}/>Ascendant</label>
         <label class="radiolabel">
-            <input type="radio" name="sortingOrder" value="DESC" {{checkedSortDesc}}/>Descending</label>
+            <input type="radio" name="sortingOrder" value="DESC" {{checkedSortDesc}}/>Descendant</label>
         <br/>
         <br/>
-        <input class="actionbutton" type="submit" value="Apply"/>
+        <input class="actionbutton" type="submit" value="Confirmer"/>
     </form>
     <br/>
 </div>

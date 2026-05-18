@@ -5,7 +5,9 @@
 <link rel="icon" type="image/png" sizes="96x96" href="{{rootPath}}/theme/common/favicon-96x96.png"/>
 <link rel="icon" type="image/png" sizes="128x128" href="{{rootPath}}/theme/common/favicon-128x128.png"/>
 <html lang="fr">
+
 <script type="text/javascript" src="{{rootPath}}/scripts/tools.js"></script>
+
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,6 +18,7 @@
   <link rel="stylesheet" type="text/css" href="{{rootPath}}/theme/common/style.css"/>
   <script src="{{rootPath}}/theme/common/themeScript.js"></script>
 </head>
+
 <body>
   <header id="topbar">
     <!-- Logo + Title -->
@@ -85,9 +88,8 @@
           </button>
         </form>
     </div>
-  </header>
 
-  <script>
+<script>
   (function () {
     var rootPath = '{{rootPath}}';
     var path = window.location.pathname;
@@ -110,7 +112,7 @@
     if (nav) {
       nav.style.visibility = isHome ? 'hidden' : 'visible';
     }
-    
+
     // ── Search Popup ─────────────────────────────────────────────────────────────────────────────────
     window.toggleSearch = function(e) {
       e.preventDefault();
@@ -155,4 +157,4 @@
           });
         }
   })();
-  </script>
+</script>

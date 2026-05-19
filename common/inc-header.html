@@ -73,6 +73,20 @@
       </div>
       {{/userName}}
 
+      <!-- Language selector -->
+      <select id="lang-select"
+              onchange="window.i18n.setLang(this.value)"
+              style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.15);border-radius:6px;
+                     color:#aaaaaa;font-family:'Noto Sans',sans-serif;font-size:13px;font-weight:700;
+                     padding:5px 8px;cursor:pointer;margin-left:12px;flex-shrink:0;outline:none;
+                     transition:border-color 0.2s;"
+              onmouseover="this.style.borderColor='#4ca2d8';this.style.color='#fff';"
+              onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#aaaaaa';">
+        <option value="fr">🇫🇷 Français</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="it">🇮🇹 Italiano</option>
+      </select>
+
       <div id="search-popup" style="display:none;position:fixed;top:56px;right:16px;
         background:#1c1c1c;border:1px solid rgba(255,255,255,0.1);border-radius:8px;
         padding:16px;z-index:2000;box-shadow:0 8px 24px rgba(0,0,0,0.5);">
@@ -90,28 +104,6 @@
         </form>
     </div>
 
-
-    <!-- Language selector -->
-    <div id="lang-selector" style="display:flex;align-items:center;gap:6px;margin-left:12px;flex-shrink:0;">
-      <button onclick="window.i18n.setLang('fr')" id="lang-fr"
-              style="background:none;border:none;cursor:pointer;font-family:'Noto Sans',sans-serif;font-size:13px;font-weight:700;padding:4px 8px;border-radius:4px;transition:all 0.2s;"
-              onmouseover="this.style.color='#fff';"
-              onmouseout="updateLangButtons();">
-        FR
-      </button>
-      <button onclick="window.i18n.setLang('en')" id="lang-en"
-              style="background:none;border:none;cursor:pointer;font-family:'Noto Sans',sans-serif;font-size:13px;font-weight:700;padding:4px 8px;border-radius:4px;transition:all 0.2s;"
-              onmouseover="this.style.color='#fff';"
-              onmouseout="updateLangButtons();">
-        EN
-      </button>
-      <button onclick="window.i18n.setLang('it')" id="lang-it"
-              style="background:none;border:none;cursor:pointer;font-family:'Noto Sans',sans-serif;font-size:13px;font-weight:700;padding:4px 8px;border-radius:4px;transition:all 0.2s;"
-              onmouseover="this.style.color='#fff';"
-              onmouseout="updateLangButtons();">
-        IT
-      </button>
-    </div>
 
     <script>
       (function () {
@@ -131,23 +123,9 @@
         var cleanPath = path.replace(/\/$/, '') || '/';
         var cleanRoot = (rootPath || '').replace(/\/$/, '');
         var isHome = (cleanPath === cleanRoot || cleanPath === '' || cleanPath === '/');
-
-        // ── Language buttons highlight ───────────────────────────────────────────────────────────────────
-        function updateLangButtons() {
-          var cur = window.i18n.getLang();
-          ['fr','en','it'].forEach(function(l) {
-            var btn = document.getElementById('lang-' + l);
-            if (!btn) return;
-            if (l === cur) {
-              btn.style.color = '#4ca2d8';
-              btn.style.background = 'rgba(76,162,216,0.12)';
-            } else {
-              btn.style.color = '#555';
-              btn.style.background = 'none';
-            }
-          });
-        }
-        updateLangButtons();
+                // ── Language select: init valeur courante ─────────────────────
+        var langSel = document.getElementById('lang-select');
+        if (langSel) langSel.value = window.i18n.getLang();
 
         var nav = document.getElementById('navigation-buttons');
         if (nav) {

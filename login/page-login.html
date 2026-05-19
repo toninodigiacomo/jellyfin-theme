@@ -1,173 +1,174 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ubooquity — Connexion</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap"/>
-  {{loginScripts}}
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ubooquity — Connexion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap"/>
+    {{loginScripts}}
+    <script type="text/javascript" src="{{rootPath}}/theme/common/i18n.js"></script>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      min-height: 100vh;
-      font-family: 'Noto Sans', 'Segoe UI', sans-serif;
-      background: radial-gradient(ellipse at 50% 0%, rgba(0,164,220,0.12) 0%, transparent 60%), #101010;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      -webkit-font-smoothing: antialiased;
-    }
+      html {
+        min-height: 100vh;
+        font-family: 'Noto Sans', 'Segoe UI', sans-serif;
+        background: radial-gradient(ellipse at 50% 0%, rgba(0,164,220,0.12) 0%, transparent 60%), #101010;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -webkit-font-smoothing: antialiased;
+      }
 
-    /* ── Logo + titre ── */
-    .login-logo {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-    .login-logo img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-    }
-    .login-logo-title {
-      font-size: 26px;
-      font-weight: 600;
-      color: #ffffff;
-      letter-spacing: -0.06em;
-    }
-    .login-logo-sub {
-      font-size: 14px;
-      font-weight: 400;
-      color: #505050;
-      margin-top: -10px;
-    }
+      /* ── Logo + titre ── */
+      .login-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px;
+      }
+      .login-logo img {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+      }
+      .login-logo-title {
+        font-size: 26px;
+        font-weight: 600;
+        color: #ffffff;
+        letter-spacing: -0.06em;
+      }
+      .login-logo-sub {
+        font-size: 14px;
+        font-weight: 400;
+        color: #505050;
+        margin-top: -10px;
+      }
 
-    /* ── Card ── */
-    .login-card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 32px 36px 36px;
-      width: min(380px, 92vw);
-    }
+      /* ── Card ── */
+      .login-card {
+        background: #1a1a1a;
+        border-radius: 12px;
+        padding: 32px 36px 36px;
+        width: min(380px, 92vw);
+      }
 
-    .login-card h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 24px;
-    }
+      .login-card h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 24px;
+      }
 
-    /* ── Labels ── */
-    .login-card label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: #aaaaaa;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 7px;
-    }
+      /* ── Labels ── */
+      .login-card label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        color: #aaaaaa;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-bottom: 7px;
+      }
 
-    /* ── Inputs ── */
-    .login-card input[type="text"],
-    .login-card input[type="password"] {
-      width: 100%;
-      background: #252525;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 6px;
-      color: #ffffff;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #505050;
-      padding: 10px 14px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      margin-bottom: 18px;
-    }
-    .login-card input[type="text"]:focus,
-    .login-card input[type="password"]:focus {
-      border-color: #00a4dc;
-      box-shadow: 0 0 0 3px rgba(0,164,220,0.18);
-      color: #ffffff;
-    }
-    .login-card input::placeholder {
-      color: #505050;
-    }
+      /* ── Inputs ── */
+      .login-card input[type="text"],
+      .login-card input[type="password"] {
+        width: 100%;
+        background: #252525;
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 6px;
+        color: #ffffff;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #505050;
+        padding: 10px 14px;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+        margin-bottom: 18px;
+      }
+      .login-card input[type="text"]:focus,
+      .login-card input[type="password"]:focus {
+        border-color: #00a4dc;
+        box-shadow: 0 0 0 3px rgba(0,164,220,0.18);
+        color: #ffffff;
+      }
+      .login-card input::placeholder {
+        color: #505050;
+      }
 
-    /* ── Submit ── */
-    .login-card button[type="button"] {
-      width: 100%;
-      background: #00a4dc;
-      border: none;
-      border-radius: 6px;
-      color: #ffffff;
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 13px;
-      cursor: pointer;
-      transition: background 0.2s, box-shadow 0.2s;
-      margin-top: 6px;
-    }
-    .login-card button[type="button"]:hover {
-      background: #0091c2;
-      box-shadow: 0 4px 16px rgba(0,164,220,0.3);
-    }
+      /* ── Submit ── */
+      .login-card button[type="button"] {
+        width: 100%;
+        background: #00a4dc;
+        border: none;
+        border-radius: 6px;
+        color: #ffffff;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 13px;
+        cursor: pointer;
+        transition: background 0.2s, box-shadow 0.2s;
+        margin-top: 6px;
+      }
+      .login-card button[type="button"]:hover {
+        background: #0091c2;
+        box-shadow: 0 4px 16px rgba(0,164,220,0.3);
+      }
 
-    /* ── Footer ── */
-    .login-footer {
-      margin-top: 28px;
-      font-size: 12px;
-      color: #4c4e50;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
+      /* ── Footer ── */
+      .login-footer {
+        margin-top: 28px;
+        font-size: 12px;
+        color: #4c4e50;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
 
-  <!-- Logo -->
-  <div class="login-logo">
-    <img src="{{rootPath}}/theme/common/logo.png" alt="Ubooquity"/>
-    <div class="login-logo-title">Ubooquity</div>
-    <div class="login-logo-sub">Votre bibliothèque personnelle</div>
-  </div>
+    <!-- Logo -->
+    <div class="login-logo">
+      <img src="{{rootPath}}/theme/common/logo.png" alt="Ubooquity"/>
+      <div class="login-logo-title">Ubooquity</div>
+      <div class="login-logo-sub" data-i18n="loginSub">Votre bibliothèque personnelle</div>
+    </div>
 
-  <!-- Card -->
-  <div class="login-card">
-    <h2>Connexion</h2>
+    <!-- Card -->
+    <div class="login-card">
+      <h2 data-i18n="loginTitle">Connexion</h2>
 
-    <form id="{{formId}}" method="post">
-      {{hiddenInputs}}
+      <form id="{{formId}}" method="post">
+        {{hiddenInputs}}
 
-      <label for="{{loginFieldName}}">Identifiant</label>
-      <input
-        type="text"
-        id="{{loginFieldName}}"
-        name="{{loginFieldName}}"
-        placeholder="Votre identifiant"
-        autocomplete="username"
-      />
+        <label for="{{loginFieldName}}" data-i18n="loginUser">Identifiant</label>
+        <input
+          type="text"
+          id="{{loginFieldName}}"
+          name="{{loginFieldName}}"
+          placeholder="Votre identifiant" data-i18n="loginUserPh" data-i18n-attr="placeholder"
+          autocomplete="username"
+        />
 
-      <label for="{{passwordFieldId}}">Mot de passe</label>
-      <input
-        type="password"
-        id="{{passwordFieldId}}"
-        placeholder="Votre mot de passe"
-        autocomplete="current-password"
-      />
+        <label for="{{passwordFieldId}}" data-i18n="loginPass">Mot de passe</label>
+        <input
+          type="password"
+          id="{{passwordFieldId}}"
+          placeholder="Votre mot de passe" data-i18n="loginPassPh" data-i18n-attr="placeholder"
+          autocomplete="current-password"
+        />
 
-      <button type="button" onclick="{{onLoginClick}}">Se connecter</button>
-    </form>
-  </div>
+        <button type="button" onclick="{{onLoginClick}}"><span data-i18n="loginBtn">Se connecter</span></button>
+      </form>
+    </div>
 
-  <div class="login-footer">Thème Jellyquity pour Ubooquity 3</div>
+    <div class="login-footer" data-i18n="loginFooter">Thème Jellyquity pour Ubooquity 3</div>
 
-</body>
+  </body>
 </html>

@@ -201,7 +201,7 @@
   <!-- Recently Added Sections -->
   {{#categories}}
   <div class="home-section">
-    <div class="home-section-title">{{categoryName}} ajoutés récemment</div>
+    <div class="home-section-title">{{categoryName}} <span data-i18n="recentlyAdded">ajoutés récemment</span></div>
     <div class="home-recent-grid" id="grid-{{categoryId}}">
       <div class="recent-card-skeleton"></div>
       <div class="recent-card-skeleton"></div>
@@ -251,7 +251,7 @@
         grid.innerHTML = '';
 
         if (!imgs.length) {
-          grid.innerHTML = '<span style="color:#444;font-size:13px;">Aucun élément récent</span>';
+          grid.innerHTML = '<span style="color:#444;font-size:13px;">' + window.i18n.t('noRecentItems') + '</span>';
           return;
         }
 
@@ -282,7 +282,7 @@
         }
       })
       .catch(function () {
-        if (grid) grid.innerHTML = '<span style="color:#444;font-size:13px;">Impossible de charger les éléments récents</span>';
+        if (grid) grid.innerHTML = '<span style="color:#444;font-size:13px;">' + window.i18n.t('loadError') + '</span>';
       });
   });
 

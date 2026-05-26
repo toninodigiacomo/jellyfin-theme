@@ -24,6 +24,11 @@
   --jf-font:         'Noto Sans', 'Segoe UI', sans-serif;
 }
 
+:root {
+  --cover-width: {{coverWidth}}px;
+  --cover-height: {{coverHeight}}px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;

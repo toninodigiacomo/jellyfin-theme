@@ -20,7 +20,7 @@
       /* ── 6-column centered grid ────────────────────────────────────────────────────────────────────── */
       #booksContainer {
         display: grid !important;
-        grid-template-columns: repeat(6, 165px) !important;
+        grid-template-columns: repeat(6, var(--cover-width)) !important;
         gap: 16px !important;
         justify-content: center !important;
         margin: 0 auto !important;
@@ -29,13 +29,13 @@
       }
 
       #booksContainer .book {
-        width: 165px !important;
+        width: var(--cover-width) !important;
         cursor: pointer;
       }
 
       #booksContainer .book img {
-        width: 165px !important;
-        height: 238px !important;
+        width: var(--cover-width) !important;
+        height: var(--cover-height) !important;
         object-fit: cover !important;
         border-radius: 5px !important;
         border: 3px solid #aaaaaa !important;
@@ -58,7 +58,7 @@
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        width: 165px !important;
+        width: var(--cover-width) !important;
       }
     </style>
 

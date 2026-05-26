@@ -31,9 +31,7 @@
 }
 
 #pageselector { width: 420px; }
-
 #searchbox    { width: 420px; }
-
 #settingsbox  { width: 420px; }
 
 #bookdetails {
@@ -127,7 +125,7 @@
 }
 
 #details_tags::before {
-  content: url('/theme/common/icon-tag.svg');
+  content: url('{{rootPath}}/theme/common/icon-tag.svg');
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -143,7 +141,7 @@
 }
 
 #details_language::before {
-  content: url('/theme/common/icon-language.svg');
+  content: url('{{rootPath}}/theme/common/icon-language.svg');
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -159,7 +157,7 @@
 }
 
 #details_file::before {
-  content: url('/theme/common/icon-file.svg');
+  content: url('{{rootPath}}/theme/common/icon-file.svg');
   display: inline-block;
   width: 10px;
   height: 10px;

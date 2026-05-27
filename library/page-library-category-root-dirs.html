@@ -42,7 +42,7 @@
         color: #ffffff;
         text-align: center;
         margin-bottom: 10px;
-        width: var(--cover-width);
+        width: var(--cover-width) !important;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -62,13 +62,13 @@
         flex-direction: column;
         align-items: center;
         text-decoration: none;
-        width: var(--cover-width);
+        width: var(--cover-width) !important;
         flex-shrink: 0;
       }
 
       .folder-card {
-        width: var(--cover-width);
-        height: var(--cover-height);
+        width: var(--cover-width) !important;
+        height: var(--cover-height) !important;
         border-radius: 5px;
         border: 3px solid #aaaaaa;
         overflow: hidden;
@@ -82,8 +82,8 @@
       .folder-item:hover .folder-card { border-color: #4ca2d8; }
 
       .folder-cover {
-        width: 100%;
-        height: 100%;
+        width: var(--cover-width) !important;
+        height: var(--cover-height) !important;
         object-fit: cover;
         display: none;
         position: absolute;

@@ -247,7 +247,7 @@
           bgEl.style.backgroundImage = 'url(' + pick.src + ')';
         }
 
-        // ── Grid of 10 recent items ────────────────────────────────────────────────────────────────
+        // ── Grid of 6 recent items ────────────────────────────────────────────────────────────────
         if (!grid) return;
         grid.innerHTML = '';
 
@@ -256,16 +256,16 @@
           return;
         }
 
-        var count = Math.min(imgs.length, 10);
+        var count = Math.min(imgs.length, 6);  // <-- Change the number to increase/decrease the size number
         for (var i = 0; i < count; i++) {
           var img  = imgs[i];
 
-          // Cherche le lien parent de la card
+          // Find the parent link for the record
           var book = img.closest('.book') || img.closest('.cellcontainer');
-          var href = latestUrl; // fallback : la page des récents
+          var href = latestUrl; // fallback: the recent page
 
           if (book) {
-            // Cas dossier : lien direct
+            // Case folder: direct link
             var folderLink = book.querySelector('a[href]:not([href="#"])');
             if (folderLink) href = folderLink.href;
           }
@@ -287,7 +287,7 @@
       });
   });
 
-  // Fond de la card Raw Files
+  // Background of the Raw Files card
   var rawCard = document.querySelector('.cat-card[data-raw-url]');
   if (rawCard) {
     var rawUrl = rawCard.dataset.rawUrl;
@@ -298,7 +298,7 @@
         .then(function(html) {
           var doc  = new DOMParser().parseFromString(html, 'text/html');
           var imgs = doc.querySelectorAll('img[src*="cover"], img[src*="thumbnail"], img');
-          // Filtre les images qui ne sont pas des icônes UI
+          // Filters out images that are not UI icons
           var covers = Array.from(imgs).filter(function(img) {
             return img.src && !img.src.includes('theme') && img.naturalWidth !== 0;
           });
@@ -311,10 +311,6 @@
         .catch(function() {});
     }
   }
-
-  // (The single fetch above replaces the two separate loops)
-  // Loading the 10 most recent items by category — MERGED above
-
 })();
 </script>
 
